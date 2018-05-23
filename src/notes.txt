@@ -1,0 +1,16 @@
+RIA -> Single Page Application 
+
+Virtual DOM
+
+
+
+
+HTML
+
+DOM
+----------------------------
+VDOM
+
+JS
+
+JSX - JavaScript in XML
