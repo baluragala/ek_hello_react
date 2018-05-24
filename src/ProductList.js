@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import ProductListItem from "./ProductListItem";
 import { connect } from "react-redux";
-import { getProductsActionCreator } from "./actionCreators/product";
+import {
+  getProductsActionCreator,
+  getProductActionCreator
+} from "./actionCreators/product";
+import { getOffersActionCreator } from "./actionCreators/offer";
 
 class ProductList extends Component {
   constructor(props) {
@@ -9,7 +13,7 @@ class ProductList extends Component {
   }
 
   componentDidMount() {
-    this.props.getProducts();
+    //this.props.getProducts();
   }
 
   setFavourite = title => {
@@ -24,6 +28,9 @@ class ProductList extends Component {
   render() {
     return (
       <div>
+        <button onClick={() => this.props.getProducts()}>GET PRODUCTS</button>
+        <button onClick={() => this.props.getProduct()}>GET PRODUCT</button>
+        <button onClick={() => this.props.getOffers()}>GET OFFERS</button>
         <h4>Favourites:</h4>
         {this.props.favs.map(f => <li key={f}>{f}</li>)}
         {this.props.wip && <p>Loading...</p>}
@@ -43,15 +50,18 @@ class ProductList extends Component {
 
 function mapStateToProps(state) {
   return {
-    prods: state.products,
-    wip: state.isLoading,
-    favs: state.favourites
+    prods: state.productState.products,
+    wip: state.productState.isLoading,
+    favs: state.productState.favourites,
+    offers: state.offerState.get("offers")
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    getProducts: () => dispatch(getProductsActionCreator())
+    getProducts: () => dispatch(getProductsActionCreator()),
+    getProduct: () => dispatch(getProductActionCreator(1)),
+    getOffers: () => dispatch(getOffersActionCreator())
   };
 }
 

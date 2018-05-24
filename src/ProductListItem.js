@@ -20,15 +20,15 @@ class ProductListItem extends Component {
 
   constructor(props) {
     super(props);
-    console.log("constructor");
+    //console.log("constructor");
   }
 
   componentWillMount() {
-    console.log("componentWillMount");
+    //console.log("componentWillMount");
   }
 
   render() {
-    console.log("render");
+    //console.log("render");
     return (
       <div className="container">
         <h2>
@@ -43,28 +43,28 @@ class ProductListItem extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
+    //console.log("componentDidMount");
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("componentWillReceiveProps");
+    //console.log("componentWillReceiveProps");
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("shouldComponentUpdate");
+    //console.log("shouldComponentUpdate");
     return this.props.title !== nextProps.title;
   }
 
   componentWillUpdate(nextProps, nextState) {
-    console.log("componentWillUpdate");
+    //console.log("componentWillUpdate");
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("componentDidUpdate");
+    //console.log("componentDidUpdate");
   }
 
   componentWillUnmount() {
-    console.log("componentWillUnmount");
+    //console.log("componentWillUnmount");
   }
 }
 
